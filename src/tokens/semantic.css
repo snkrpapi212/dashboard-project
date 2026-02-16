@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Semantic Design Tokens
+   Maps primitive tokens to purpose-driven names
+   Corporate Blue Sales Dashboard
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     SEMANTIC COLORS
+     ======================================================================== */
+
+  /* Brand / Primary */
+  --color-primary: var(--color-blue-500);
+  --color-primary-light: var(--color-blue-400);
+  --color-primary-lighter: var(--color-blue-100);
+  --color-primary-dark: var(--color-blue-600);
+  --color-primary-darker: var(--color-blue-700);
+
+  /* Secondary */
+  --color-secondary: var(--color-purple-500);
+  --color-secondary-light: var(--color-purple-400);
+
+  /* Feedback / Status */
+  --color-success: var(--color-green-500);
+  --color-success-light: var(--color-green-400);
+  --color-success-bg: var(--color-green-50);
+  --color-success-border: var(--color-green-200);
+
+  --color-warning: var(--color-yellow-500);
+  --color-warning-light: var(--color-yellow-400);
+  --color-warning-bg: var(--color-yellow-50);
+  --color-warning-border: var(--color-yellow-200);
+
+  --color-danger: var(--color-red-500);
+  --color-danger-light: var(--color-red-400);
+  --color-danger-bg: var(--color-red-50);
+  --color-danger-border: var(--color-red-200);
+
+  --color-info: var(--color-blue-500);
+  --color-info-light: var(--color-blue-400);
+  --color-info-bg: var(--color-blue-50);
+  --color-info-border: var(--color-blue-200);
+
+  /* Text */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-400);
+  --color-text-disabled: var(--color-gray-300);
+  --color-text-inverse: var(--color-white);
+  --color-text-link: var(--color-primary);
+  --color-text-link-hover: var(--color-primary-dark);
+
+  /* Backgrounds */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-inverse: var(--color-gray-900);
+  --color-bg-disabled: var(--color-gray-100);
+  --color-bg-hover: var(--color-gray-50);
+  --color-bg-active: var(--color-gray-100);
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Borders */
+  --color-border-default: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+  --color-border-focus: var(--color-primary);
+  --color-border-disabled: var(--color-gray-200);
+  --color-border-error: var(--color-danger);
+
+  /* ========================================================================
+     SEMANTIC SPACING (8px grid)
+     ======================================================================== */
+  --spacing-xs: var(--space-1);    /* 4px */
+  --spacing-sm: var(--space-2);    /* 8px  - 1x base */
+  --spacing-md: var(--space-4);    /* 16px - 2x base */
+  --spacing-lg: var(--space-6);    /* 24px - 3x base */
+  --spacing-xl: var(--space-8);    /* 32px - 4x base */
+  --spacing-2xl: var(--space-12);  /* 48px - 6x base */
+  --spacing-3xl: var(--space-16);  /* 64px - 8x base */
+
+  /* ========================================================================
+     SEMANTIC TYPOGRAPHY
+     ======================================================================== */
+
+  /* Headings */
+  --heading-1-size: var(--font-size-4xl);
+  --heading-1-weight: var(--font-weight-bold);
+  --heading-1-line-height: var(--line-height-tight);
+  --heading-1-letter-spacing: var(--letter-spacing-tight);
+
+  --heading-2-size: var(--font-size-3xl);
+  --heading-2-weight: var(--font-weight-semibold);
+  --heading-2-line-height: var(--line-height-tight);
+  --heading-2-letter-spacing: var(--letter-spacing-tight);
+
+  --heading-3-size: var(--font-size-2xl);
+  --heading-3-weight: var(--font-weight-semibold);
+  --heading-3-line-height: var(--line-height-snug);
+
+  --heading-4-size: var(--font-size-xl);
+  --heading-4-weight: var(--font-weight-medium);
+  --heading-4-line-height: var(--line-height-snug);
+
+  /* Body */
+  --body-size: var(--font-size-base);
+  --body-weight: var(--font-weight-normal);
+  --body-line-height: var(--line-height-normal);
+
+  --body-sm-size: var(--font-size-sm);
+  --body-lg-size: var(--font-size-lg);
+
+  /* UI Text */
+  --label-size: var(--font-size-sm);
+  --label-weight: var(--font-weight-medium);
+  --label-line-height: var(--line-height-normal);
+
+  --caption-size: var(--font-size-xs);
+  --caption-weight: var(--font-weight-normal);
+
+  /* ========================================================================
+     SEMANTIC TRANSITIONS
+     ======================================================================== */
+  --transition-fast: all var(--duration-fast) var(--ease-out);
+  --transition-normal: all var(--duration-normal) var(--ease-in-out);
+  --transition-slow: all var(--duration-slow) var(--ease-in-out);
+  --transition-colors: background-color var(--duration-fast) var(--ease-out),
+                       color var(--duration-fast) var(--ease-out),
+                       border-color var(--duration-fast) var(--ease-out);
+
+  /* ========================================================================
+     SEMANTIC FOCUS
+     ======================================================================== */
+  --shadow-focus-primary: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  --shadow-focus-danger: 0 0 0 3px rgba(239, 68, 68, 0.3);
+  --shadow-focus-success: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}

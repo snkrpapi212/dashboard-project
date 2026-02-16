@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Dashboard Component Tokens
+   Sales dashboard specific component-level design tokens
+   ======================================================================== */
+
+:root {
+  /* ========================================================================
+     LAYOUT TOKENS
+     ======================================================================== */
+  --layout-sidebar-width: 260px;
+  --layout-sidebar-collapsed-width: 64px;
+  --layout-header-height: 64px;
+  --layout-container-max-width: 1440px;
+  --layout-container-padding: var(--spacing-lg);
+  --layout-grid-gap: var(--spacing-lg);
+  --layout-section-gap: var(--spacing-xl);
+
+  /* ========================================================================
+     CARD TOKENS
+     ======================================================================== */
+  --card-bg: var(--color-bg-primary);
+  --card-border-color: var(--color-border-default);
+  --card-border-radius: var(--radius-lg);
+  --card-padding: var(--spacing-lg);
+  --card-padding-compact: var(--spacing-md);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-md);
+
+  /* ========================================================================
+     KPI / METRIC CARD TOKENS
+     ======================================================================== */
+  --kpi-value-size: var(--font-size-3xl);
+  --kpi-value-weight: var(--font-weight-bold);
+  --kpi-value-color: var(--color-text-primary);
+  --kpi-label-size: var(--font-size-sm);
+  --kpi-label-color: var(--color-text-secondary);
+  --kpi-label-weight: var(--font-weight-medium);
+  --kpi-trend-positive: var(--color-success);
+  --kpi-trend-negative: var(--color-danger);
+  --kpi-trend-neutral: var(--color-text-tertiary);
+  --kpi-icon-size: 40px;
+  --kpi-icon-bg-primary: var(--color-blue-50);
+  --kpi-icon-color-primary: var(--color-blue-500);
+  --kpi-icon-bg-success: var(--color-green-50);
+  --kpi-icon-color-success: var(--color-green-500);
+  --kpi-icon-bg-warning: var(--color-yellow-50);
+  --kpi-icon-color-warning: var(--color-yellow-500);
+  --kpi-icon-bg-danger: var(--color-red-50);
+  --kpi-icon-color-danger: var(--color-red-500);
+
+  /* ========================================================================
+     CHART TOKENS
+     ======================================================================== */
+  --chart-bg: var(--color-bg-primary);
+  --chart-border-color: var(--color-border-default);
+  --chart-grid-color: var(--color-gray-100);
+  --chart-axis-color: var(--color-gray-300);
+  --chart-axis-text-color: var(--color-text-tertiary);
+  --chart-axis-text-size: var(--font-size-xs);
+  --chart-tooltip-bg: var(--color-gray-900);
+  --chart-tooltip-text: var(--color-white);
+  --chart-tooltip-border-radius: var(--radius-md);
+  --chart-tooltip-shadow: var(--shadow-lg);
+
+  /* Chart data series colors (colorblind-safe palette) */
+  --chart-color-1: #3B82F6;  /* Blue - Revenue */
+  --chart-color-2: #10B981;  /* Green - Orders */
+  --chart-color-3: #F59E0B;  /* Amber - Conversion */
+  --chart-color-4: #8B5CF6;  /* Purple - AOV */
+  --chart-color-5: #EC4899;  /* Pink */
+  --chart-color-6: #14B8A6;  /* Teal */
+  --chart-color-7: #F97316;  /* Orange */
+  --chart-color-8: #6366F1;  /* Indigo */
+
+  --chart-legend-gap: var(--spacing-md);
+  --chart-legend-dot-size: 10px;
+
+  /* ========================================================================
+     TABLE TOKENS
+     ======================================================================== */
+  --table-bg: var(--color-bg-primary);
+  --table-header-bg: var(--color-bg-secondary);
+  --table-header-text-color: var(--color-text-secondary);
+  --table-header-font-size: var(--font-size-xs);
+  --table-header-font-weight: var(--font-weight-semibold);
+  --table-header-letter-spacing: var(--letter-spacing-wider);
+  --table-header-text-transform: uppercase;
+  --table-row-bg: var(--color-bg-primary);
+  --table-row-bg-hover: var(--color-bg-hover);
+  --table-row-bg-striped: var(--color-bg-secondary);
+  --table-row-bg-selected: var(--color-blue-50);
+  --table-row-border-color: var(--color-border-default);
+  --table-cell-padding-x: var(--spacing-md);
+  --table-cell-padding-y: var(--spacing-sm);
+  --table-cell-font-size: var(--font-size-sm);
+  --table-sort-icon-color: var(--color-text-tertiary);
+  --table-sort-icon-active-color: var(--color-primary);
+
+  /* ========================================================================
+     BUTTON TOKENS
+     ======================================================================== */
+  --button-bg-primary: var(--color-primary);
+  --button-bg-primary-hover: var(--color-primary-dark);
+  --button-bg-primary-active: var(--color-primary-darker);
+  --button-text-primary: var(--color-white);
+  --button-bg-secondary: var(--color-bg-primary);
+  --button-bg-secondary-hover: var(--color-bg-hover);
+  --button-text-secondary: var(--color-text-primary);
+  --button-border-secondary: var(--color-border-default);
+  --button-bg-ghost: transparent;
+  --button-bg-ghost-hover: var(--color-bg-hover);
+  --button-text-ghost: var(--color-text-secondary);
+  --button-bg-danger: var(--color-danger);
+  --button-bg-danger-hover: var(--color-red-600);
+  --button-text-danger: var(--color-white);
+  --button-bg-disabled: var(--color-bg-disabled);
+  --button-text-disabled: var(--color-text-disabled);
+
+  --button-border-radius: var(--radius-md);
+  --button-font-size: var(--font-size-sm);
+  --button-font-weight: var(--font-weight-medium);
+  --button-height-sm: 32px;
+  --button-height-md: 40px;
+  --button-height-lg: 48px;
+  --button-padding-inline-sm: var(--spacing-sm);
+  --button-padding-inline-md: var(--spacing-md);
+  --button-padding-inline-lg: var(--spacing-lg);
+
+  /* ========================================================================
+     INPUT / FORM TOKENS
+     ======================================================================== */
+  --input-bg: var(--color-bg-primary);
+  --input-border-color: var(--color-border-default);
+  --input-border-color-hover: var(--color-border-hover);
+  --input-border-color-focus: var(--color-primary);
+  --input-border-color-error: var(--color-danger);
+  --input-border-radius: var(--radius-md);
+  --input-text-color: var(--color-text-primary);
+  --input-placeholder-color: var(--color-text-tertiary);
+  --input-height: 40px;
+  --input-padding-x: var(--spacing-sm);
+  --input-font-size: var(--font-size-sm);
+  --input-shadow-focus: var(--shadow-focus-primary);
+
+  /* Select / Dropdown */
+  --select-bg: var(--input-bg);
+  --select-border-color: var(--input-border-color);
+  --select-border-radius: var(--input-border-radius);
+
+  /* ========================================================================
+     FILTER BAR TOKENS
+     ======================================================================== */
+  --filter-bar-bg: var(--color-bg-primary);
+  --filter-bar-border-color: var(--color-border-default);
+  --filter-bar-padding: var(--spacing-md);
+  --filter-bar-gap: var(--spacing-sm);
+  --filter-bar-border-radius: var(--radius-lg);
+
+  /* Filter Chip */
+  --filter-chip-bg: var(--color-bg-secondary);
+  --filter-chip-bg-active: var(--color-blue-50);
+  --filter-chip-text: var(--color-text-secondary);
+  --filter-chip-text-active: var(--color-primary);
+  --filter-chip-border: var(--color-border-default);
+  --filter-chip-border-active: var(--color-primary-light);
+  --filter-chip-border-radius: var(--radius-full);
+  --filter-chip-padding-x: var(--spacing-sm);
+  --filter-chip-padding-y: var(--spacing-xs);
+
+  /* ========================================================================
+     SIDEBAR / NAV TOKENS
+     ======================================================================== */
+  --sidebar-bg: var(--color-bg-primary);
+  --sidebar-border-color: var(--color-border-default);
+  --sidebar-item-padding: var(--spacing-sm) var(--spacing-md);
+  --sidebar-item-border-radius: var(--radius-md);
+  --sidebar-item-text-color: var(--color-text-secondary);
+  --sidebar-item-text-color-active: var(--color-primary);
+  --sidebar-item-bg-hover: var(--color-bg-hover);
+  --sidebar-item-bg-active: var(--color-blue-50);
+  --sidebar-item-icon-size: 20px;
+
+  /* ========================================================================
+     HEADER TOKENS
+     ======================================================================== */
+  --header-bg: var(--color-bg-primary);
+  --header-border-color: var(--color-border-default);
+  --header-shadow: var(--shadow-xs);
+  --header-padding-x: var(--spacing-lg);
+
+  /* ========================================================================
+     BADGE TOKENS
+     ======================================================================== */
+  --badge-bg-default: var(--color-bg-tertiary);
+  --badge-text-default: var(--color-text-secondary);
+  --badge-bg-primary: var(--color-blue-50);
+  --badge-text-primary: var(--color-blue-700);
+  --badge-bg-success: var(--color-green-50);
+  --badge-text-success: var(--color-green-700);
+  --badge-bg-warning: var(--color-yellow-50);
+  --badge-text-warning: var(--color-yellow-700);
+  --badge-bg-danger: var(--color-red-50);
+  --badge-text-danger: var(--color-red-700);
+  --badge-border-radius: var(--radius-full);
+  --badge-padding-x: var(--spacing-sm);
+  --badge-padding-y: 2px;
+  --badge-font-size: var(--font-size-xs);
+  --badge-font-weight: var(--font-weight-medium);
+
+  /* ========================================================================
+     TOOLTIP TOKENS
+     ======================================================================== */
+  --tooltip-bg: var(--color-gray-900);
+  --tooltip-text: var(--color-white);
+  --tooltip-border-radius: var(--radius-md);
+  --tooltip-padding: var(--spacing-xs) var(--spacing-sm);
+  --tooltip-font-size: var(--font-size-xs);
+  --tooltip-shadow: var(--shadow-lg);
+
+  /* ========================================================================
+     PAGINATION TOKENS
+     ======================================================================== */
+  --pagination-item-size: 36px;
+  --pagination-item-bg: transparent;
+  --pagination-item-bg-hover: var(--color-bg-hover);
+  --pagination-item-bg-active: var(--color-primary);
+  --pagination-item-text: var(--color-text-secondary);
+  --pagination-item-text-active: var(--color-white);
+  --pagination-item-border-radius: var(--radius-md);
+}

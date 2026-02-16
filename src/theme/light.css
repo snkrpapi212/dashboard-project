@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Light Theme (Default)
+   Corporate Blue Sales Dashboard
+   ========================================================================== */
+
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Semantic Colors - Light mode defaults */
+  --color-primary: var(--color-blue-500);
+  --color-primary-light: var(--color-blue-400);
+  --color-primary-lighter: var(--color-blue-100);
+  --color-primary-dark: var(--color-blue-600);
+  --color-primary-darker: var(--color-blue-700);
+
+  /* Text */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-400);
+  --color-text-disabled: var(--color-gray-300);
+  --color-text-inverse: var(--color-white);
+
+  /* Backgrounds */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-inverse: var(--color-gray-900);
+  --color-bg-disabled: var(--color-gray-100);
+  --color-bg-hover: var(--color-gray-50);
+  --color-bg-active: var(--color-gray-100);
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --color-bg-page: var(--color-gray-50);
+
+  /* Borders */
+  --color-border-default: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+
+  /* Feedback backgrounds */
+  --color-success-bg: var(--color-green-50);
+  --color-success-border: var(--color-green-200);
+  --color-warning-bg: var(--color-yellow-50);
+  --color-warning-border: var(--color-yellow-200);
+  --color-danger-bg: var(--color-red-50);
+  --color-danger-border: var(--color-red-200);
+  --color-info-bg: var(--color-blue-50);
+  --color-info-border: var(--color-blue-200);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12);
+
+  /* Focus */
+  --shadow-focus-primary: 0 0 0 3px rgba(59, 130, 246, 0.3);
+
+  /* Chart */
+  --chart-grid-color: var(--color-gray-100);
+  --chart-axis-color: var(--color-gray-300);
+  --chart-axis-text-color: var(--color-gray-400);
+  --chart-tooltip-bg: var(--color-gray-900);
+  --chart-tooltip-text: var(--color-white);
+
+  /* KPI icons */
+  --kpi-icon-bg-primary: var(--color-blue-50);
+  --kpi-icon-bg-success: var(--color-green-50);
+  --kpi-icon-bg-warning: var(--color-yellow-50);
+  --kpi-icon-bg-danger: var(--color-red-50);
+
+  /* Table */
+  --table-header-bg: var(--color-gray-50);
+  --table-row-bg-striped: var(--color-gray-50);
+  --table-row-bg-selected: var(--color-blue-50);
+
+  /* Filter Chips */
+  --filter-chip-bg-active: var(--color-blue-50);
+  --filter-chip-text-active: var(--color-blue-600);
+  --filter-chip-border-active: var(--color-blue-200);
+
+  /* Sidebar */
+  --sidebar-item-bg-active: var(--color-blue-50);
+  --sidebar-item-text-color-active: var(--color-blue-600);
+
+  /* Badge */
+  --badge-bg-primary: var(--color-blue-50);
+  --badge-text-primary: var(--color-blue-700);
+  --badge-bg-success: var(--color-green-50);
+  --badge-text-success: var(--color-green-700);
+  --badge-bg-warning: var(--color-yellow-50);
+  --badge-text-warning: var(--color-yellow-700);
+  --badge-bg-danger: var(--color-red-50);
+  --badge-text-danger: var(--color-red-700);
+}

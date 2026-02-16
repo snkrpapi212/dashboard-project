@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Dark Theme
+   Corporate Blue Sales Dashboard
+   ========================================================================== */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Primary - slightly lighter for dark backgrounds */
+  --color-primary: var(--color-blue-400);
+  --color-primary-light: var(--color-blue-300);
+  --color-primary-lighter: var(--color-blue-900);
+  --color-primary-dark: var(--color-blue-500);
+  --color-primary-darker: var(--color-blue-600);
+
+  /* Status colors adjusted for dark mode */
+  --color-success: var(--color-green-400);
+  --color-success-light: var(--color-green-300);
+  --color-warning: var(--color-yellow-400);
+  --color-warning-light: var(--color-yellow-300);
+  --color-danger: var(--color-red-400);
+  --color-danger-light: var(--color-red-300);
+  --color-info: var(--color-blue-400);
+
+  /* Text - inverted scale */
+  --color-text-primary: var(--color-gray-50);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-disabled: var(--color-gray-600);
+  --color-text-inverse: var(--color-gray-900);
+  --color-text-link: var(--color-blue-400);
+  --color-text-link-hover: var(--color-blue-300);
+
+  /* Backgrounds - inverted scale */
+  --color-bg-primary: var(--color-gray-900);
+  --color-bg-secondary: var(--color-gray-800);
+  --color-bg-tertiary: var(--color-gray-700);
+  --color-bg-inverse: var(--color-gray-50);
+  --color-bg-disabled: var(--color-gray-800);
+  --color-bg-hover: rgba(255, 255, 255, 0.05);
+  --color-bg-active: rgba(255, 255, 255, 0.1);
+  --color-bg-overlay: rgba(0, 0, 0, 0.7);
+  --color-bg-page: #0B1120;
+
+  /* Borders */
+  --color-border-default: var(--color-gray-700);
+  --color-border-hover: var(--color-gray-600);
+  --color-border-focus: var(--color-blue-400);
+  --color-border-disabled: var(--color-gray-700);
+  --color-border-error: var(--color-red-400);
+
+  /* Feedback backgrounds - deep dark tones */
+  --color-success-bg: rgba(16, 185, 129, 0.1);
+  --color-success-border: var(--color-green-800);
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-warning-border: var(--color-yellow-800);
+  --color-danger-bg: rgba(239, 68, 68, 0.1);
+  --color-danger-border: var(--color-red-800);
+  --color-info-bg: rgba(59, 130, 246, 0.1);
+  --color-info-border: var(--color-blue-800);
+
+  /* Shadows - heavier for dark mode */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.4);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Focus */
+  --shadow-focus-primary: 0 0 0 3px rgba(96, 165, 250, 0.35);
+  --shadow-focus-danger: 0 0 0 3px rgba(248, 113, 113, 0.35);
+  --shadow-focus-success: 0 0 0 3px rgba(52, 211, 153, 0.35);
+
+  /* ========================================================================
+     COMPONENT TOKEN OVERRIDES
+     ======================================================================== */
+
+  /* Card */
+  --card-bg: var(--color-gray-800);
+  --card-border-color: var(--color-gray-700);
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* KPI Icons */
+  --kpi-icon-bg-primary: rgba(59, 130, 246, 0.15);
+  --kpi-icon-color-primary: var(--color-blue-400);
+  --kpi-icon-bg-success: rgba(16, 185, 129, 0.15);
+  --kpi-icon-color-success: var(--color-green-400);
+  --kpi-icon-bg-warning: rgba(245, 158, 11, 0.15);
+  --kpi-icon-color-warning: var(--color-yellow-400);
+  --kpi-icon-bg-danger: rgba(239, 68, 68, 0.15);
+  --kpi-icon-color-danger: var(--color-red-400);
+
+  /* Chart */
+  --chart-bg: var(--color-gray-800);
+  --chart-border-color: var(--color-gray-700);
+  --chart-grid-color: var(--color-gray-700);
+  --chart-axis-color: var(--color-gray-600);
+  --chart-axis-text-color: var(--color-gray-400);
+  --chart-tooltip-bg: var(--color-gray-700);
+  --chart-tooltip-text: var(--color-gray-50);
+
+  /* Adjusted chart palette for dark mode visibility */
+  --chart-color-1: #60A5FA;
+  --chart-color-2: #34D399;
+  --chart-color-3: #FBBF24;
+  --chart-color-4: #A78BFA;
+  --chart-color-5: #F472B6;
+  --chart-color-6: #2DD4BF;
+  --chart-color-7: #FB923C;
+  --chart-color-8: #818CF8;
+
+  /* Table */
+  --table-bg: var(--color-gray-800);
+  --table-header-bg: var(--color-gray-900);
+  --table-header-text-color: var(--color-gray-300);
+  --table-row-bg: var(--color-gray-800);
+  --table-row-bg-hover: rgba(255, 255, 255, 0.04);
+  --table-row-bg-striped: rgba(255, 255, 255, 0.02);
+  --table-row-bg-selected: rgba(59, 130, 246, 0.15);
+  --table-row-border-color: var(--color-gray-700);
+
+  /* Button */
+  --button-bg-primary: var(--color-blue-500);
+  --button-bg-primary-hover: var(--color-blue-400);
+  --button-bg-primary-active: var(--color-blue-600);
+  --button-bg-secondary: var(--color-gray-800);
+  --button-bg-secondary-hover: var(--color-gray-700);
+  --button-text-secondary: var(--color-gray-200);
+  --button-border-secondary: var(--color-gray-600);
+  --button-bg-ghost-hover: rgba(255, 255, 255, 0.06);
+  --button-text-ghost: var(--color-gray-300);
+  --button-bg-disabled: var(--color-gray-700);
+  --button-text-disabled: var(--color-gray-500);
+
+  /* Input */
+  --input-bg: var(--color-gray-800);
+  --input-border-color: var(--color-gray-600);
+  --input-border-color-hover: var(--color-gray-500);
+  --input-text-color: var(--color-gray-100);
+  --input-placeholder-color: var(--color-gray-500);
+
+  /* Filter Bar */
+  --filter-bar-bg: var(--color-gray-800);
+  --filter-bar-border-color: var(--color-gray-700);
+  --filter-chip-bg: var(--color-gray-700);
+  --filter-chip-bg-active: rgba(59, 130, 246, 0.15);
+  --filter-chip-text: var(--color-gray-300);
+  --filter-chip-text-active: var(--color-blue-400);
+  --filter-chip-border: var(--color-gray-600);
+  --filter-chip-border-active: var(--color-blue-700);
+
+  /* Sidebar */
+  --sidebar-bg: var(--color-gray-900);
+  --sidebar-border-color: var(--color-gray-700);
+  --sidebar-item-text-color: var(--color-gray-300);
+  --sidebar-item-text-color-active: var(--color-blue-400);
+  --sidebar-item-bg-hover: rgba(255, 255, 255, 0.05);
+  --sidebar-item-bg-active: rgba(59, 130, 246, 0.1);
+
+  /* Header */
+  --header-bg: var(--color-gray-900);
+  --header-border-color: var(--color-gray-700);
+  --header-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* Badge */
+  --badge-bg-default: var(--color-gray-700);
+  --badge-text-default: var(--color-gray-300);
+  --badge-bg-primary: rgba(59, 130, 246, 0.15);
+  --badge-text-primary: var(--color-blue-300);
+  --badge-bg-success: rgba(16, 185, 129, 0.15);
+  --badge-text-success: var(--color-green-300);
+  --badge-bg-warning: rgba(245, 158, 11, 0.15);
+  --badge-text-warning: var(--color-yellow-300);
+  --badge-bg-danger: rgba(239, 68, 68, 0.15);
+  --badge-text-danger: var(--color-red-300);
+
+  /* Tooltip */
+  --tooltip-bg: var(--color-gray-700);
+  --tooltip-text: var(--color-gray-50);
+
+  /* Pagination */
+  --pagination-item-bg-hover: rgba(255, 255, 255, 0.06);
+  --pagination-item-bg-active: var(--color-blue-500);
+  --pagination-item-text: var(--color-gray-300);
+}

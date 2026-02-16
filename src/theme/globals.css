@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Global Reset & Base Styles
+   Corporate Blue Sales Dashboard
+   ========================================================================== */
+
+/* Import token layers in order */
+@import '../tokens/primitives.css';
+@import '../tokens/semantic.css';
+@import '../tokens/components/dashboard.css';
+@import '../tokens/components/feedback.css';
+@import './light.css';
+@import './dark.css';
+@import './accessibility.css';
+@import '../styles/layout.css';
+@import '../styles/charts.css';
+
+/* ==========================================================================
+   CSS RESET (Modern Minimal)
+   ======================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  line-height: var(--body-line-height);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page, var(--color-bg-secondary));
+  transition: var(--transition-colors);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY BASE
+   ======================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--heading-1-size);
+  font-weight: var(--heading-1-weight);
+  line-height: var(--heading-1-line-height);
+  letter-spacing: var(--heading-1-letter-spacing);
+}
+
+h2 {
+  font-size: var(--heading-2-size);
+  font-weight: var(--heading-2-weight);
+  line-height: var(--heading-2-line-height);
+  letter-spacing: var(--heading-2-letter-spacing);
+}
+
+h3 {
+  font-size: var(--heading-3-size);
+  font-weight: var(--heading-3-weight);
+  line-height: var(--heading-3-line-height);
+}
+
+h4 {
+  font-size: var(--heading-4-size);
+  font-weight: var(--heading-4-weight);
+  line-height: var(--heading-4-line-height);
+}
+
+p {
+  margin-block-end: var(--spacing-md);
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   INTERACTIVE ELEMENTS BASE
+   ======================================================================== */
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Focus Visible - keyboard-only focus ring */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   TABLE BASE
+   ======================================================================== */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ==========================================================================
+   SCROLLBAR STYLING
+   ======================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-300);
+  border-radius: var(--radius-full);
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-600);
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ======================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,569 @@
+/* ==========================================================================
+   Layout System - Sales Dashboard
+   CSS Grid-based responsive layout with collapsible sidebar
+   All values reference design tokens from src/tokens/
+   ========================================================================== */
+
+/* ==========================================================================
+   APP SHELL - CSS Grid Layout
+   Grid areas: header spans full width, sidebar + main below
+   ========================================================================== */
+
+.app-shell {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  grid-template-columns: var(--layout-sidebar-width) 1fr;
+  grid-template-rows: var(--layout-header-height) 1fr;
+  min-height: 100vh;
+  background: var(--color-bg-page, var(--color-bg-secondary));
+}
+
+.app-shell--sidebar-collapsed {
+  grid-template-columns: var(--layout-sidebar-collapsed-width) 1fr;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.layout-header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--layout-header-height);
+  padding-inline: var(--header-padding-x);
+  background: var(--header-bg);
+  border-bottom: var(--border-width-thin) solid var(--header-border-color);
+  box-shadow: var(--header-shadow);
+}
+
+.layout-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.layout-header__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+.layout-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   SIDEBAR TOGGLE BUTTON
+   ========================================================================== */
+
+.sidebar-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+  width: 44px;
+  height: 44px;
+  padding: var(--spacing-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-colors);
+  color: var(--color-text-secondary);
+}
+
+.sidebar-toggle:hover {
+  background: var(--color-bg-hover);
+}
+
+.sidebar-toggle:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+.sidebar-toggle__line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+.layout-sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  top: var(--layout-header-height);
+  height: calc(100vh - var(--layout-header-height));
+  width: var(--layout-sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: var(--border-width-thin) solid var(--sidebar-border-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width var(--duration-slow) var(--ease-in-out);
+  z-index: var(--z-sticky);
+}
+
+.layout-sidebar--collapsed {
+  width: var(--layout-sidebar-collapsed-width);
+}
+
+/* Sidebar navigation list */
+.sidebar-nav {
+  padding: var(--spacing-sm);
+}
+
+.sidebar-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+
+/* Sidebar navigation item */
+.sidebar-nav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--sidebar-item-padding);
+  color: var(--sidebar-item-text-color);
+  text-decoration: none;
+  border-radius: var(--sidebar-item-border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-colors);
+  min-height: 44px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-nav__item:hover {
+  background: var(--sidebar-item-bg-hover);
+  text-decoration: none;
+}
+
+.sidebar-nav__item--active {
+  background: var(--sidebar-item-bg-active);
+  color: var(--sidebar-item-text-color-active);
+}
+
+.sidebar-nav__item-icon {
+  flex-shrink: 0;
+  width: var(--sidebar-item-icon-size);
+  height: var(--sidebar-item-icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-nav__item-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+/* When sidebar is collapsed, hide labels and badges */
+.layout-sidebar--collapsed .sidebar-nav__item-label,
+.layout-sidebar--collapsed .sidebar-nav__item-badge,
+.layout-sidebar--collapsed .sidebar-nav__item-chevron,
+.layout-sidebar--collapsed .sidebar-nav__submenu {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.sidebar-nav__item-badge {
+  flex-shrink: 0;
+  background: var(--color-danger);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: 2px var(--spacing-xs);
+  border-radius: var(--radius-full);
+  min-width: 20px;
+  text-align: center;
+  line-height: var(--line-height-normal);
+}
+
+.sidebar-nav__item-chevron {
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-in-out);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+}
+
+.sidebar-nav__item-chevron--expanded {
+  transform: rotate(90deg);
+}
+
+.sidebar-nav__submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav__submenu .sidebar-nav__item {
+  padding-left: calc(var(--spacing-md) + var(--sidebar-item-icon-size) + var(--spacing-sm));
+  font-weight: var(--font-weight-normal);
+}
+
+/* Sidebar section divider */
+.sidebar-nav__divider {
+  height: var(--border-width-thin);
+  background: var(--sidebar-border-color);
+  margin: var(--spacing-sm) var(--spacing-md);
+}
+
+.sidebar-nav__section-label {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.layout-sidebar--collapsed .sidebar-nav__section-label {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+
+.layout-main {
+  grid-area: main;
+  min-width: 0; /* Prevent grid blowout */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.layout-main__content {
+  max-width: var(--layout-container-max-width);
+  margin: 0 auto;
+  padding: var(--layout-container-padding);
+}
+
+/* ==========================================================================
+   DASHBOARD CONTENT GRID
+   Internal layout for dashboard sections within main content
+   ========================================================================== */
+
+.dashboard-grid {
+  display: grid;
+  gap: var(--layout-section-gap);
+}
+
+/* Filter bar section - full width */
+.dashboard-grid__filter-bar {
+  grid-column: 1 / -1;
+}
+
+/* KPI cards row - auto-fit responsive grid */
+.dashboard-grid__kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--layout-grid-gap);
+}
+
+/* Chart grid - 2-column layout on desktop */
+.dashboard-grid__chart-area {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--layout-grid-gap);
+}
+
+/* Data table section - full width */
+.dashboard-grid__table-section {
+  grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   MOBILE OVERLAY (for sidebar on mobile)
+   ========================================================================== */
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg-overlay);
+  z-index: calc(var(--z-sticky) - 1);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.mobile-overlay--visible {
+  display: block;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   SKIP LINKS (Accessibility)
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: calc(-1 * var(--layout-header-height));
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-decoration: none;
+  z-index: var(--z-toast);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  border-radius: 0 0 var(--radius-md) 0;
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS - Mobile First
+   ========================================================================== */
+
+/* ---------- Mobile (< 640px): Stacked layout ---------- */
+@media (max-width: 639px) {
+  .app-shell {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--layout-header-height) 1fr;
+  }
+
+  .layout-sidebar {
+    position: fixed;
+    top: var(--layout-header-height);
+    left: 0;
+    bottom: 0;
+    width: var(--layout-sidebar-width);
+    transform: translateX(-100%);
+    transition: transform var(--duration-slow) var(--ease-in-out);
+    z-index: var(--z-fixed);
+  }
+
+  .layout-sidebar--mobile-open {
+    transform: translateX(0);
+  }
+
+  .layout-main__content {
+    padding: var(--spacing-md);
+  }
+
+  .dashboard-grid__kpi-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid__chart-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Tablet (640px - 767px): 2-column grid ---------- */
+@media (min-width: 640px) and (max-width: 767px) {
+  .app-shell {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--layout-header-height) 1fr;
+  }
+
+  .layout-sidebar {
+    position: fixed;
+    top: var(--layout-header-height);
+    left: 0;
+    bottom: 0;
+    width: var(--layout-sidebar-width);
+    transform: translateX(-100%);
+    transition: transform var(--duration-slow) var(--ease-in-out);
+    z-index: var(--z-fixed);
+  }
+
+  .layout-sidebar--mobile-open {
+    transform: translateX(0);
+  }
+
+  .layout-main__content {
+    padding: var(--spacing-md);
+  }
+
+  .dashboard-grid__kpi-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid__chart-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Tablet Landscape (768px - 1023px): 2-column with compact sidebar ---------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-shell {
+    grid-template-columns: var(--layout-sidebar-collapsed-width) 1fr;
+  }
+
+  .layout-sidebar {
+    width: var(--layout-sidebar-collapsed-width);
+  }
+
+  /* Force collapsed state at this breakpoint */
+  .layout-sidebar .sidebar-nav__item-label,
+  .layout-sidebar .sidebar-nav__item-badge,
+  .layout-sidebar .sidebar-nav__item-chevron,
+  .layout-sidebar .sidebar-nav__submenu,
+  .layout-sidebar .sidebar-nav__section-label {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .dashboard-grid__kpi-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid__chart-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Desktop (1024px - 1279px): Full sidebar + 2-column charts ---------- */
+@media (min-width: 1024px) {
+  .dashboard-grid__chart-area {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid__kpi-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Wide Desktop (1280px+): Full layout ---------- */
+@media (min-width: 1280px) {
+  .layout-main__content {
+    padding: var(--layout-container-padding);
+  }
+
+  .dashboard-grid__chart-area {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   CHART CARD LAYOUT (within chart grid)
+   ========================================================================== */
+
+.chart-card--full-width {
+  grid-column: 1 / -1;
+}
+
+.chart-card--half-width {
+  grid-column: span 1;
+}
+
+/* ==========================================================================
+   UTILITY: CONTAINER QUERIES for component-responsive behavior
+   ========================================================================== */
+
+.dashboard-grid__kpi-row {
+  container-type: inline-size;
+  container-name: kpi-row;
+}
+
+@container kpi-row (max-width: 600px) {
+  .dashboard-grid__kpi-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@container kpi-row (min-width: 601px) and (max-width: 900px) {
+  .dashboard-grid__kpi-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dashboard-grid__chart-area {
+  container-type: inline-size;
+  container-name: chart-area;
+}
+
+@container chart-area (max-width: 700px) {
+  .dashboard-grid__chart-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   UTILITY LAYOUT CLASSES
+   ========================================================================== */
+
+.layout-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.layout-stack--sm { gap: var(--spacing-sm); }
+.layout-stack--lg { gap: var(--spacing-lg); }
+.layout-stack--xl { gap: var(--spacing-xl); }
+
+.layout-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.layout-row--sm { gap: var(--spacing-sm); }
+.layout-row--lg { gap: var(--spacing-lg); }
+.layout-row--between { justify-content: space-between; }
+.layout-row--end { justify-content: flex-end; }
+.layout-row--wrap { flex-wrap: wrap; }
+
+.layout-section {
+  margin-bottom: var(--layout-section-gap);
+}
+
+.layout-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.layout-section__title {
+  font-size: var(--heading-3-size);
+  font-weight: var(--heading-3-weight);
+  line-height: var(--heading-3-line-height);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.layout-section__subtitle {
+  font-size: var(--body-sm-size);
+  color: var(--color-text-secondary);
+  margin: 0;
+}

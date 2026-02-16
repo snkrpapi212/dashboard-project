@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Feedback Component Tokens
+   Toast, progress, empty state, dialog, and alert tokens
+   All values reference primitives and semantic tokens.
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     TOAST TOKENS
+     ======================================================================== */
+  --toast-bg: var(--color-bg-primary);
+  --toast-text: var(--color-text-primary);
+  --toast-description-text: var(--color-text-secondary);
+  --toast-border-color: var(--color-border-default);
+  --toast-border-radius: var(--radius-lg);
+  --toast-padding: var(--spacing-md);
+  --toast-gap: var(--spacing-sm);
+  --toast-shadow: var(--shadow-lg);
+  --toast-width: 380px;
+  --toast-max-stack: 5;
+  --toast-stack-offset: var(--spacing-sm);
+  --toast-z-index: var(--z-toast);
+
+  /* Toast icon sizes */
+  --toast-icon-size: 20px;
+
+  /* Toast variant colors */
+  --toast-success-accent: var(--color-success);
+  --toast-success-bg: var(--color-success-bg);
+  --toast-success-border: var(--color-success-border);
+  --toast-error-accent: var(--color-danger);
+  --toast-error-bg: var(--color-danger-bg);
+  --toast-error-border: var(--color-danger-border);
+  --toast-warning-accent: var(--color-warning);
+  --toast-warning-bg: var(--color-warning-bg);
+  --toast-warning-border: var(--color-warning-border);
+  --toast-info-accent: var(--color-info);
+  --toast-info-bg: var(--color-info-bg);
+  --toast-info-border: var(--color-info-border);
+
+  /* Toast timing */
+  --toast-enter-duration: var(--duration-slow);
+  --toast-exit-duration: var(--duration-normal);
+  --toast-auto-dismiss: 5000ms;
+
+  /* ========================================================================
+     PROGRESS TOKENS
+     ======================================================================== */
+  --progress-bar-height: 6px;
+  --progress-bar-bg: var(--color-bg-tertiary);
+  --progress-bar-fill: var(--color-primary);
+  --progress-bar-border-radius: var(--radius-full);
+  --progress-bar-success-fill: var(--color-success);
+  --progress-bar-error-fill: var(--color-danger);
+  --progress-bar-warning-fill: var(--color-warning);
+
+  /* Circular progress */
+  --progress-circular-size: 40px;
+  --progress-circular-stroke-width: 3px;
+  --progress-circular-bg: var(--color-bg-tertiary);
+  --progress-circular-fill: var(--color-primary);
+
+  /* ========================================================================
+     EMPTY STATE TOKENS
+     ======================================================================== */
+  --empty-state-max-width: 400px;
+  --empty-state-padding: var(--spacing-2xl);
+  --empty-state-icon-size: 80px;
+  --empty-state-icon-bg: var(--color-bg-secondary);
+  --empty-state-icon-color: var(--color-text-tertiary);
+  --empty-state-title-size: var(--heading-3-size);
+  --empty-state-title-weight: var(--heading-3-weight);
+  --empty-state-title-color: var(--color-text-primary);
+  --empty-state-description-size: var(--body-sm-size);
+  --empty-state-description-color: var(--color-text-secondary);
+  --empty-state-gap: var(--spacing-md);
+
+  /* ========================================================================
+     CONFIRMATION DIALOG TOKENS
+     ======================================================================== */
+  --dialog-bg: var(--color-bg-primary);
+  --dialog-border-radius: var(--radius-xl);
+  --dialog-shadow: var(--shadow-xl);
+  --dialog-padding: var(--spacing-lg);
+  --dialog-max-width: 440px;
+  --dialog-overlay-bg: var(--color-bg-overlay);
+  --dialog-title-size: var(--heading-4-size);
+  --dialog-title-weight: var(--heading-4-weight);
+  --dialog-title-color: var(--color-text-primary);
+  --dialog-description-size: var(--body-sm-size);
+  --dialog-description-color: var(--color-text-secondary);
+  --dialog-z-index: var(--z-modal);
+  --dialog-overlay-z-index: var(--z-modal-backdrop);
+
+  /* ========================================================================
+     ALERT BANNER TOKENS
+     ======================================================================== */
+  --alert-padding: var(--spacing-sm) var(--spacing-md);
+  --alert-border-radius: var(--radius-md);
+  --alert-font-size: var(--font-size-sm);
+  --alert-icon-size: 18px;
+  --alert-gap: var(--spacing-sm);
+}
+
+/* Dark theme overrides */
+:root[data-theme="dark"] {
+  --toast-bg: var(--color-gray-800);
+  --toast-border-color: var(--color-gray-700);
+  --toast-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --dialog-bg: var(--color-gray-800);
+  --dialog-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --dialog-overlay-bg: rgba(0, 0, 0, 0.75);
+
+  --empty-state-icon-bg: var(--color-gray-700);
+
+  --progress-bar-bg: var(--color-gray-700);
+  --progress-circular-bg: var(--color-gray-700);
+}

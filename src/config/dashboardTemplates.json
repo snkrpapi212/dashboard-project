@@ -1,0 +1,89 @@
+{
+  "templates": [
+    {
+      "id": "sales-overview",
+      "name": "Sales Overview",
+      "description": "Complete sales analytics with KPIs, revenue trends, product performance, and transactions",
+      "widgets": [
+        { "id": "kpi-revenue", "type": "kpi", "title": "Revenue" },
+        { "id": "kpi-orders", "type": "kpi", "title": "Orders" },
+        { "id": "kpi-conversion", "type": "kpi", "title": "Conversion Rate" },
+        { "id": "kpi-aov", "type": "kpi", "title": "Average Order Value" },
+        { "id": "chart-revenue-trend", "type": "chart", "title": "Revenue Trend" },
+        { "id": "chart-category", "type": "chart", "title": "Category Breakdown" },
+        { "id": "chart-comparison", "type": "chart", "title": "Product Comparison" },
+        { "id": "chart-distribution", "type": "chart", "title": "Regional Distribution" },
+        { "id": "table-transactions", "type": "table", "title": "Recent Transactions" }
+      ],
+      "layouts": {
+        "lg": [
+          { "i": "kpi-revenue", "x": 0, "y": 0, "w": 3, "h": 2 },
+          { "i": "kpi-orders", "x": 3, "y": 0, "w": 3, "h": 2 },
+          { "i": "kpi-conversion", "x": 6, "y": 0, "w": 3, "h": 2 },
+          { "i": "kpi-aov", "x": 9, "y": 0, "w": 3, "h": 2 },
+          { "i": "chart-revenue-trend", "x": 0, "y": 2, "w": 8, "h": 4 },
+          { "i": "chart-category", "x": 8, "y": 2, "w": 4, "h": 4 },
+          { "i": "chart-comparison", "x": 0, "y": 6, "w": 6, "h": 4 },
+          { "i": "chart-distribution", "x": 6, "y": 6, "w": 6, "h": 4 },
+          { "i": "table-transactions", "x": 0, "y": 10, "w": 12, "h": 5 }
+        ]
+      },
+      "defaultFilters": {
+        "dateRange": { "preset": "30d" },
+        "granularity": "day"
+      }
+    },
+    {
+      "id": "executive-summary",
+      "name": "Executive Summary",
+      "description": "High-level KPIs and key charts for executive review",
+      "widgets": [
+        { "id": "kpi-revenue", "type": "kpi", "title": "Revenue" },
+        { "id": "kpi-orders", "type": "kpi", "title": "Orders" },
+        { "id": "kpi-conversion", "type": "kpi", "title": "Conversion Rate" },
+        { "id": "kpi-aov", "type": "kpi", "title": "Average Order Value" },
+        { "id": "chart-revenue-trend", "type": "chart", "title": "Revenue Trend" },
+        { "id": "chart-distribution", "type": "chart", "title": "Regional Distribution" }
+      ],
+      "layouts": {
+        "lg": [
+          { "i": "kpi-revenue", "x": 0, "y": 0, "w": 3, "h": 2 },
+          { "i": "kpi-orders", "x": 3, "y": 0, "w": 3, "h": 2 },
+          { "i": "kpi-conversion", "x": 6, "y": 0, "w": 3, "h": 2 },
+          { "i": "kpi-aov", "x": 9, "y": 0, "w": 3, "h": 2 },
+          { "i": "chart-revenue-trend", "x": 0, "y": 2, "w": 8, "h": 5 },
+          { "i": "chart-distribution", "x": 8, "y": 2, "w": 4, "h": 5 }
+        ]
+      },
+      "defaultFilters": {
+        "dateRange": { "preset": "quarter" },
+        "granularity": "week"
+      }
+    },
+    {
+      "id": "product-analytics",
+      "name": "Product Analytics",
+      "description": "Focused on product performance, categories, and detailed transactions",
+      "widgets": [
+        { "id": "kpi-revenue", "type": "kpi", "title": "Revenue" },
+        { "id": "kpi-orders", "type": "kpi", "title": "Orders" },
+        { "id": "chart-comparison", "type": "chart", "title": "Product Comparison" },
+        { "id": "chart-category", "type": "chart", "title": "Category Breakdown" },
+        { "id": "table-transactions", "type": "table", "title": "Transaction Details" }
+      ],
+      "layouts": {
+        "lg": [
+          { "i": "kpi-revenue", "x": 0, "y": 0, "w": 6, "h": 2 },
+          { "i": "kpi-orders", "x": 6, "y": 0, "w": 6, "h": 2 },
+          { "i": "chart-comparison", "x": 0, "y": 2, "w": 6, "h": 4 },
+          { "i": "chart-category", "x": 6, "y": 2, "w": 6, "h": 4 },
+          { "i": "table-transactions", "x": 0, "y": 6, "w": 12, "h": 6 }
+        ]
+      },
+      "defaultFilters": {
+        "dateRange": { "preset": "30d" },
+        "granularity": "day"
+      }
+    }
+  ]
+}

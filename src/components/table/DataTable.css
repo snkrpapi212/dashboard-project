@@ -1,0 +1,704 @@
+/* ==========================================================================
+   DataTable Styles
+   Uses --table-* and --pagination-* design tokens from dashboard.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container
+   -------------------------------------------------------------------------- */
+
+.dt {
+  background: var(--table-bg);
+  border: 1px solid var(--table-row-border-color);
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+}
+
+.dt--compact .dt__td,
+.dt--compact .dt__th {
+  padding: var(--spacing-xs) var(--table-cell-padding-x);
+}
+
+/* --------------------------------------------------------------------------
+   Toolbar (title, search, export)
+   -------------------------------------------------------------------------- */
+
+.dt__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--table-cell-padding-x) var(--card-padding);
+  border-bottom: 1px solid var(--table-row-border-color);
+  flex-wrap: wrap;
+}
+
+.dt__toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 0;
+}
+
+.dt__toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.dt__title-group {
+  min-width: 0;
+}
+
+.dt__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dt__subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin: 2px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Search
+   -------------------------------------------------------------------------- */
+
+.dt__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dt__search-input {
+  height: var(--button-height-sm);
+  padding: 0 var(--spacing-sm);
+  padding-right: var(--spacing-lg);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  background: var(--input-bg);
+  color: var(--input-text-color);
+  font-size: var(--input-font-size);
+  min-width: 200px;
+  transition: var(--transition-colors);
+}
+
+.dt__search-input:hover {
+  border-color: var(--input-border-color-hover);
+}
+
+.dt__search-input:focus {
+  outline: none;
+  border-color: var(--input-border-color-focus);
+  box-shadow: var(--input-shadow-focus);
+}
+
+.dt__search-input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+.dt__search-clear {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-lg);
+  padding: 2px 6px;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+}
+
+.dt__search-clear:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+
+.dt__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  height: var(--button-height-sm);
+  padding: 0 var(--button-padding-inline-sm);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  transition: var(--transition-colors);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.dt__btn--secondary {
+  background: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  border-color: var(--button-border-secondary);
+}
+
+.dt__btn--secondary:hover {
+  background: var(--button-bg-secondary-hover);
+}
+
+.dt__btn--ghost {
+  background: var(--button-bg-ghost);
+  color: var(--button-text-ghost);
+  border-color: transparent;
+}
+
+.dt__btn--ghost:hover {
+  background: var(--button-bg-ghost-hover);
+}
+
+.dt__btn--danger {
+  background: var(--button-bg-danger);
+  color: var(--button-text-danger);
+}
+
+.dt__btn--danger:hover {
+  background: var(--button-bg-danger-hover);
+}
+
+.dt__btn-icon {
+  font-size: var(--font-size-base);
+}
+
+/* --------------------------------------------------------------------------
+   Batch Actions Bar
+   -------------------------------------------------------------------------- */
+
+.dt__batch-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--card-padding);
+  background: var(--table-row-bg-selected);
+  border-bottom: 1px solid var(--color-primary-lighter);
+}
+
+.dt__batch-count {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+}
+
+.dt__batch-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Container (responsive horizontal scroll on mobile)
+   -------------------------------------------------------------------------- */
+
+.dt__scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dt__scroll-container:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-primary-lighter);
+}
+
+/* --------------------------------------------------------------------------
+   Table
+   -------------------------------------------------------------------------- */
+
+.dt__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.dt__thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.dt__th {
+  background: var(--table-header-bg);
+  color: var(--table-header-text-color);
+  font-size: var(--table-header-font-size);
+  font-weight: var(--table-header-font-weight);
+  letter-spacing: var(--table-header-letter-spacing);
+  text-transform: var(--table-header-text-transform);
+  text-align: left;
+  padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+  border-bottom: 2px solid var(--table-row-border-color);
+  white-space: nowrap;
+  user-select: none;
+  vertical-align: bottom;
+}
+
+.dt__th--checkbox {
+  width: 44px;
+  text-align: center;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-xs);
+}
+
+.dt__th--sortable {
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.dt__th--sortable:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.dt__th--sortable:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.dt__th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Sort Indicators
+   -------------------------------------------------------------------------- */
+
+.dt__sort-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.dt__sort-icon {
+  font-size: 8px;
+  line-height: 1;
+  color: var(--table-sort-icon-color);
+  opacity: 0.4;
+}
+
+.dt__sort-icon--active {
+  color: var(--table-sort-icon-active-color);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Column Filters (inline beneath header)
+   -------------------------------------------------------------------------- */
+
+.dt__column-filter {
+  margin-top: 4px;
+}
+
+.dt__filter-input {
+  width: 100%;
+  height: 24px;
+  padding: 0 var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  color: var(--input-text-color);
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: var(--font-weight-normal);
+}
+
+.dt__filter-input:focus {
+  outline: none;
+  border-color: var(--input-border-color-focus);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.dt__filter-input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+/* --------------------------------------------------------------------------
+   Body / Rows
+   -------------------------------------------------------------------------- */
+
+.dt__tbody .dt__tr {
+  transition: var(--transition-colors);
+}
+
+.dt__tr:hover {
+  background: var(--table-row-bg-hover);
+}
+
+.dt__tr--selected {
+  background: var(--table-row-bg-selected) !important;
+}
+
+.dt__tr--clickable {
+  cursor: pointer;
+}
+
+.dt__tr--clickable:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* Striped variant */
+.dt--striped .dt__tbody .dt__tr:nth-child(even) {
+  background: var(--table-row-bg-striped);
+}
+
+.dt--striped .dt__tbody .dt__tr:nth-child(even):hover {
+  background: var(--table-row-bg-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Cells
+   -------------------------------------------------------------------------- */
+
+.dt__td {
+  padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+  font-size: var(--table-cell-font-size);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--table-row-border-color);
+  vertical-align: middle;
+}
+
+.dt__td--checkbox {
+  text-align: center;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-xs);
+}
+
+/* Cell formatting */
+.dt__cell-mono {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.dt__cell-currency {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Checkbox
+   -------------------------------------------------------------------------- */
+
+.dt-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Empty State
+   -------------------------------------------------------------------------- */
+
+.dt__empty-cell {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Pagination
+   -------------------------------------------------------------------------- */
+
+.dt__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--card-padding);
+  border-top: 1px solid var(--table-row-border-color);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.dt__pagination-info {
+  display: flex;
+  align-items: center;
+}
+
+.dt__page-info {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.dt__page-info-filtered {
+  color: var(--color-text-tertiary);
+}
+
+.dt__pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.dt__page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--pagination-item-size);
+  height: var(--pagination-item-size);
+  padding: 0 var(--spacing-xs);
+  background: var(--pagination-item-bg);
+  color: var(--pagination-item-text);
+  border: none;
+  border-radius: var(--pagination-item-border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.dt__page-btn:hover:not(:disabled) {
+  background: var(--pagination-item-bg-hover);
+}
+
+.dt__page-btn--active {
+  background: var(--pagination-item-bg-active);
+  color: var(--pagination-item-text-active);
+}
+
+.dt__page-btn--active:hover {
+  background: var(--pagination-item-bg-active) !important;
+}
+
+.dt__page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dt__page-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--pagination-item-size);
+  height: var(--pagination-item-size);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-sm);
+}
+
+.dt__pagination-size {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.dt__page-size-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.dt__page-size-select {
+  height: var(--button-height-sm);
+  padding: 0 var(--spacing-sm);
+  border: 1px solid var(--select-border-color);
+  border-radius: var(--select-border-radius);
+  background: var(--select-bg);
+  color: var(--input-text-color);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.dt__page-size-select:focus {
+  outline: none;
+  border-color: var(--input-border-color-focus);
+  box-shadow: var(--input-shadow-focus);
+}
+
+/* --------------------------------------------------------------------------
+   Virtual Scroll Info Bar
+   -------------------------------------------------------------------------- */
+
+.dt__virtual-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--card-padding);
+  border-top: 1px solid var(--table-row-border-color);
+}
+
+/* --------------------------------------------------------------------------
+   Loading Skeleton
+   -------------------------------------------------------------------------- */
+
+.dt--loading .dt__skeleton {
+  padding: var(--card-padding);
+}
+
+.dt__skeleton-row {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.dt__skeleton-cell {
+  flex: 1;
+  height: 16px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  animation: dt-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dt-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Error State
+   -------------------------------------------------------------------------- */
+
+.dt__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+}
+
+.dt__error-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.dt__error-detail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-md);
+}
+
+.dt__error-retry {
+  display: inline-flex;
+  align-items: center;
+  height: var(--button-height-sm);
+  padding: 0 var(--button-padding-inline-md);
+  background: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  border: none;
+  border-radius: var(--button-border-radius);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  cursor: pointer;
+}
+
+.dt__error-retry:hover {
+  background: var(--button-bg-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Badge (reuses existing dashboard badge tokens)
+   -------------------------------------------------------------------------- */
+
+.dt .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  border-radius: var(--badge-border-radius);
+  white-space: nowrap;
+}
+
+.dt .badge--success {
+  background: var(--badge-bg-success);
+  color: var(--badge-text-success);
+}
+
+.dt .badge--warning {
+  background: var(--badge-bg-warning);
+  color: var(--badge-text-warning);
+}
+
+.dt .badge--danger {
+  background: var(--badge-bg-danger);
+  color: var(--badge-text-danger);
+}
+
+.dt .badge--default {
+  background: var(--badge-bg-default);
+  color: var(--badge-text-default);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive: Mobile Breakpoint
+   Hide lower-priority columns and stack pagination
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .dt__th--mobile-hidden,
+  .dt__td--mobile-hidden {
+    display: none;
+  }
+
+  .dt__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dt__toolbar-right {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dt__search-input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .dt__pagination {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .dt__pagination-pages {
+    order: -1;
+  }
+
+  .dt__batch-bar {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: stretch;
+  }
+
+  .dt__batch-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .dt__th,
+  .dt__td {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .dt__page-btn {
+    min-width: 28px;
+    height: 28px;
+    font-size: var(--font-size-xs);
+  }
+}

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Accessibility Theme Overrides
+   High contrast mode + Reduced motion
+   ========================================================================== */
+
+/* ==========================================================================
+   HIGH CONTRAST THEME
+   ======================================================================== */
+
+:root[data-theme="high-contrast"] {
+  color-scheme: light;
+
+  /* Pure contrast colors */
+  --color-primary: #0055CC;
+  --color-primary-light: #0066FF;
+  --color-primary-dark: #003D99;
+
+  /* Text - maximum contrast */
+  --color-text-primary: #000000;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #555555;
+
+  /* Backgrounds */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F5F5F5;
+  --color-bg-tertiary: #E5E5E5;
+
+  /* Borders - stronger */
+  --color-border-default: #666666;
+  --color-border-hover: #333333;
+  --border-width-thin: 2px;
+
+  /* Focus - extra visible */
+  --shadow-focus-primary: 0 0 0 4px rgba(0, 85, 204, 0.6);
+
+  /* Shadows - stronger */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   Respects prefers-reduced-motion OS setting
+   ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+
+    --transition-fast: none;
+    --transition-normal: none;
+    --transition-slow: none;
+    --transition-colors: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   FORCED COLORS (Windows High Contrast Mode)
+   ======================================================================== */
+
+@media (forced-colors: active) {
+  :root {
+    --color-border-default: CanvasText;
+    --color-text-primary: CanvasText;
+    --color-bg-primary: Canvas;
+  }
+
+  /* Ensure focus indicators use system colors */
+  :focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+
+/* ==========================================================================
+   PREFERS CONTRAST (macOS/iOS)
+   ======================================================================== */
+
+@media (prefers-contrast: high) {
+  :root:not([data-theme="dark"]) {
+    --color-text-secondary: #333333;
+    --color-text-tertiary: #555555;
+    --color-border-default: #666666;
+    --border-width-thin: 2px;
+  }
+
+  :root[data-theme="dark"] {
+    --color-text-secondary: #E0E0E0;
+    --color-text-tertiary: #BBBBBB;
+    --color-border-default: #888888;
+    --border-width-thin: 2px;
+  }
+}
